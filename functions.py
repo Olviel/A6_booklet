@@ -51,6 +51,14 @@ def filename_to_int_tuple(filename):
     name_part = os.path.splitext(filename)[0]  # Remove the extension
     return tuple(map(int, name_part.split('_')))  # Split at '_', convert to integers
 
+def merge_pdfs(pdf_files, output_filename):
+    pdf_merger = PyPDF2.PdfMerger()
+    for pdf_file in pdf_files:
+        pdf_merger.append(pdf_file)
+    with open(output_filename, 'wb') as f:
+        pdf_merger.write(f)
+    pdf_merger.close()
+
 
 def create_booklet(folder_path, output_path ):
     a4_size_pixels = (2480, 3508)  # A4 size in pixels (portrait)
@@ -89,10 +97,3 @@ def create_booklet(folder_path, output_path ):
 
     merge_pdfs(pdf_files, os.path.join(output_path, 'booklet.pdf'))
 
-def merge_pdfs(pdf_files, output_filename):
-    pdf_merger = PyPDF2.PdfMerger()
-    for pdf_file in pdf_files:
-        pdf_merger.append(pdf_file)
-    with open(output_filename, 'wb') as f:
-        pdf_merger.write(f)
-    pdf_merger.close()
