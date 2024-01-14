@@ -46,11 +46,6 @@ def calculate_booklet_page_order(total_pages):
 def mm_to_points(mm):
     return mm * 2.83465  # Convert mm to points
 
-def filename_to_int_tuple(filename):
-    """Converts a filename like '1_2.png' to an integer tuple (1, 2)."""
-    name_part = os.path.splitext(filename)[0]  # Remove the extension
-    return tuple(map(int, name_part.split('_')))  # Split at '_', convert to integers
-
 def merge_pdfs(pdf_files, output_filename):
     pdf_merger = PyPDF2.PdfMerger()
     for pdf_file in pdf_files:
