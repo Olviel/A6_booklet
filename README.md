@@ -33,8 +33,8 @@ Run the script: main.ipynb
 
 
 # Define the paths
-folder_path = 'path/to/your/input/folder'  # Update with the correct folder path__
-output_path = 'path/to/your/output/folder'  # Output file path__
+folder_path = 'path/to/your/input/folder'  # Update with the correct folder path\
+output_path = 'path/to/your/output/folder'  # Output file path\
 
 # Create the booklet
 create_booklet(folder_path, output_path)
@@ -43,6 +43,6 @@ The script will process the images and create individual PDF files for each page
 
 # Function Descriptions
 calculate_booklet_page_order(total_pages): Calculates the order of pages in the booklet for printing on A4.\
-mm_to_points(mm): Converts millimeters to points.__
-merge_pdfs(pdf_files, output_filename): Merges individual PDF files into a single PDF.__
-create_booklet(folder_path, output_path): Main function to create the booklet from images.__
+mm_to_points(mm): Converts millimeters to points.\
+merge_pdfs(pdf_files, output_filename): Merges individual PDF files into a single PDF.\
+create_booklet(folder_path, output_path): Main function to create the booklet from images.\
