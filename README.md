@@ -42,7 +42,7 @@ create_booklet(folder_path, output_path)
 The script will process the images and create individual PDF files for each page of the booklet, which are then merged into a single PDF named booklet.pdf in the output folder.
 
 # Function Descriptions
-calculate_booklet_page_order(total_pages): Calculates the order of pages in the booklet for printing on A4.__
+calculate_booklet_page_order(total_pages): Calculates the order of pages in the booklet for printing on A4.\
 mm_to_points(mm): Converts millimeters to points.__
 merge_pdfs(pdf_files, output_filename): Merges individual PDF files into a single PDF.__
 create_booklet(folder_path, output_path): Main function to create the booklet from images.__
