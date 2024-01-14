@@ -34,10 +34,12 @@ Run the script: main.ipynb
 
 # Define the paths
 folder_path = 'path/to/your/input/folder'  # Update with the correct folder path
+
 output_path = 'path/to/your/output/folder'  # Output file path
 
 # Create the booklet
 create_booklet(folder_path, output_path)
+
 The script will process the images and create individual PDF files for each page of the booklet, which are then merged into a single PDF named booklet.pdf in the output folder.
 
 # Function Descriptions
