@@ -62,9 +62,19 @@ def create_booklet(folder_path, output_path ):
     a6_height_adjusted = (a4_size_pixels[1] / 2) - (2 * padding)
     a6_size = (int(a6_width_adjusted), int(a6_height_adjusted))
 
-    input_paths = {int(os.path.splitext(f)[0]): os.path.join(folder_path, f)
-               for f in sorted(os.listdir(folder_path), key=lambda x: int(os.path.splitext(x)[0]))
-               if f.lower().endswith('.png')}
+    input_paths = {}
+    for f in os.listdir(folder_path):
+        if f.lower().endswith('.png') and os.path.isfile(os.path.join(folder_path, f)):
+            try:
+                file_index = int(os.path.splitext(f)[0])
+                input_paths[file_index] = os.path.join(folder_path, f)
+            except ValueError:
+                # Ignore files that do not have an integer filename
+                continue
+
+    # Sort the input_paths by key (integer filename)
+    input_paths = dict(sorted(input_paths.items()))
+
     
     # Calculate the order of the pages in the booklet
     booklet_page_order =calculate_booklet_page_order(len(input_paths))
