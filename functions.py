@@ -3,6 +3,7 @@ from PIL import Image
 import math 
 import PyPDF2
 
+import math 
 def calculate_booklet_page_order(total_pages):
     pages_per_sheet = 8  # 4 A6 pages per side on an A4 sheet
     N = math.ceil(total_pages / pages_per_sheet) # Amount of A4's needed 
@@ -32,16 +33,16 @@ def calculate_booklet_page_order(total_pages):
         front[3] = d -(N-i-1)*2 if i * 4 + 4 <= total_pages else None # bottom right 
 
         # Fill in the page numbers for the back side
-        back[0] = f + (N-i-1)*2 if i * 4 + 1 <= total_pages else None # top left
-        back[1] = g +  (N-i-1)*2 if i * 4 + 2 <= total_pages else None # top right
-        back[2] = h-(N-i-1)*2 if total_pages - (i * 4 + 1) > 0 else None # bottom left
-        back[3] = j - (N-i-1)*2  if total_pages - (i * 4 + 2) > 0 else None # bottom right
+        back[2] = g + (N-i-1)*2 if i * 4 + 2 <= total_pages else None   # top left
+        back[3] = f +  (N-i-1)*2 if i * 4 + 1 <= total_pages else None # top right
+        back[0] = j-(N-i-1)*2 if total_pages - (i * 4 + 1) > 0 else None # bottom left
+        back[1] = h - (N-i-1)*2  if total_pages - (i * 4 + 2) > 0 else None # bottom right
 
        
         page_order.append((front, back))
-      
-   
     return page_order
+
+
 
 def mm_to_points(mm):
     return mm * 2.83465  # Convert mm to points
