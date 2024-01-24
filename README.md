@@ -17,13 +17,12 @@ Ensure you have Python installed on your system. You can download it from python
 
 Install the required Python packages using pip:
 
-bash
-Copy code
-pip install pillow
-pip install PyPDF2
+pip install pillow\
+pip install PyPDF\
+
 Usage
 
-To use the script, place your A6 images in a specified input folder and define an output folder for the generated PDF files. The image files should be named in the format 1.png, 1.png, 2.png, 2.png, ..., xx.png.
+To use the script, place your A6 images in a specified input folder and define an output folder for the generated PDF files. The image files should be named in the format 0.png, 1.png, 1.png, 2.png, 2.png, ..., xx.png.
 
 Clone the repository or download the functions.py script.
 Prepare your images and place them in the input folder.
